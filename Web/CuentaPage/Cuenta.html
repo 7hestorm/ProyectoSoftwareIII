@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="Cuenta.css">
+
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* full viewport height */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-info {
+      margin-left: 20px;
+    }
+
+    .profile-name {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .profile-email {
+      font-size: 18px;
+      color: #666666;
+    }
+
+    .form {
+      margin-top: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      width: 150px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .form-input {
+      width: 300px;
+      padding: 5px;
+      border: 1px solid #cccccc;
+      border-radius: 5px;
+    }
+
+    body {
+  padding: 10px;
+    }
+
+    h1 {
+  text-align: center;
+    } 
+
+  </style>
+<!--font awesome installation-->
+<script src="https://kit.fontawesome.com/10d1050163.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Datos de la Cuenta</h1>
+    <div class="profile">
+      <img src="PP.jpg" alt="Profile picture" class="profile-image">
+      <div class="profile-info">
+        <div class="profile-name">Paolo A. Grometto R.</div>
+      </div>
+    </div>
+    
+<!--Info Input spaces-->
+    <div class="form">
+      <div class="form-group">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" id="Nombre" name="Nombre" value="Paolo" class="form-input" readonly>
+      </div>
+      <div class="form-group">
+        <label for="last-name" class="form-label">Apellido</label>
+        <input type="text" id="last-name" name="last-name" value="Grometto" class="form-input" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="Correo" class="form-label">Correo electrónico</label>
+        <input type="text" id="Correo" name="Correo" value="paologrometto@gmail.com" class="form-input" readonly>
+      </div>
+      
+      <div class="form-group">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" id="passwordInput" name="password" value="Paolo123" class="form-input" readonly>
+       
+       
+<!--Editon eye icon for the password-->
+<button id="viewPasswordButton" onclick="togglePasswordVisibility()">
+  <i class="fa fa-eye"></i></button>
+
+<script>
+  function togglePasswordVisibility() {
+    const passwordInput = document.querySelector('#passwordInput');
+    const viewPasswordButton = document.querySelector('#viewPasswordButton');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      viewPasswordButton.innerHTML = <i class="fa fa-eye"></i>;
+    } else {
+      passwordInput.type = 'password';
+      viewPasswordButton.innerHTML = <i class="fa fa-eye-slash"></i>;
+    }
+  }
+</script>
+      </div>
+
+      <div class="form-group">
+        <label for="Direccion" class="form-label">Dirección</label>
+        <input type="text" id="Direccion" name="Direccion" value="Narnia #17 edificio gato apto 200B" class="form-input" readonly>
+      </div>
+
+      <div class="form-group">
+        <label for="birth-date" class="form-label">Cumpleaños</label>
+        <input type="date" id="birth-date" name="birth-date" value="2002-12-09" class="form-input" rezadonly>
+      </div>
+    </div>
+
+
+<!--Edit and save buttons, functionality-->
+    <div style="display: flex;">
+      <button id="editButton">Edit</button>
+      <button id="saveButton">Save</button>
+    </div>
+    
+    <script>
+      const inputs = document.querySelectorAll('input');
+      const editButton = document.querySelector('#editButton');
+      const saveButton = document.querySelector('#saveButton');
+    
+      editButton.addEventListener('click', () => {
+        inputs.forEach(input => {
+          input.removeAttribute('readonly');
+        });
+      });
+    
+      saveButton.addEventListener('click', () => {
+        inputs.forEach(input => {
+          input.setAttribute('readonly', true);
+        });
+      });
+    </script>
+  </div>
+</body>
+</html>
